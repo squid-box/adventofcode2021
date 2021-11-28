@@ -1,0 +1,6 @@
+Inputs/*
+.vs/*
+Stage/*
+*.user
+/Source/*/obj/*
+session.cookie
