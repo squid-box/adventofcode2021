@@ -1,50 +1,49 @@
-﻿namespace AdventOfCode2021.Tests
+﻿namespace AdventOfCode2021.Tests;
+
+using NUnit.Framework;
+
+[TestFixture]
+public class ResultTests
 {
-	using NUnit.Framework;
+    [Test]
+    public void Constructor_SetsDayProperty()
+    {
+        var sut = new Result(1);
 
-	[TestFixture]
-	public class ResultTests
-	{
-		[Test]
-		public void Constructor_SetsDayProperty()
-		{
-			var sut = new Result(1);
+        Assert.AreEqual(1, sut.Day);
+    }
 
-			Assert.AreEqual(1, sut.Day);
-		}
+    [Test]
+    public void FullAnswer_FirstAnswerOnly()
+    {
+        var sut = new Result(0)
+        {
+            AnswerPartOne = "Hello"
+        };
 
-		[Test]
-		public void FullAnswer_FirstAnswerOnly()
-		{
-			var sut = new Result(0)
-			{
-				AnswerPartOne = "Hello"
-			};
+        Assert.AreEqual("Hello", sut.FullAnswer);
+    }
 
-			Assert.AreEqual("Hello", sut.FullAnswer);
-		}
+    [Test]
+    public void FullAnswer_SecondAnswerOnly()
+    {
+        var sut = new Result(0)
+        {
+            AnswerPartTwo = "World"
+        };
 
-		[Test]
-		public void FullAnswer_SecondAnswerOnly()
-		{
-			var sut = new Result(0)
-			{
-				AnswerPartTwo = "World"
-			};
+        Assert.AreEqual("World", sut.FullAnswer);
+    }
 
-			Assert.AreEqual("World", sut.FullAnswer);
-		}
+    [Test]
+    public void FullAnswer_BothAnswers()
+    {
+        var sut = new Result(0)
+        {
+            AnswerPartOne = "Hello",
+            AnswerPartTwo = "World"
+        };
 
-		[Test]
-		public void FullAnswer_BothAnswers()
-		{
-			var sut = new Result(0)
-			{
-				AnswerPartOne = "Hello",
-				AnswerPartTwo = "World"
-			};
-
-			Assert.AreEqual("Hello | World", sut.FullAnswer);
-		}
-	}
+        Assert.AreEqual("Hello | World", sut.FullAnswer);
+    }
 }

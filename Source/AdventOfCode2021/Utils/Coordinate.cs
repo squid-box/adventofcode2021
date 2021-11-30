@@ -1,81 +1,80 @@
-﻿namespace AdventOfCode2021.Utils
+﻿namespace AdventOfCode2021.Utils;
+
+using System;
+
+/// <summary>
+/// Represents a coordinate in a 2-4 dimensional system.
+/// </summary>
+public class Coordinate : IComparable
 {
-    using System;
+    public int X { get; }
 
-    /// <summary>
-    /// Represents a coordinate in a 2-4 dimensional system.
-    /// </summary>
-    public class Coordinate : IComparable
+    public int Y { get; }
+
+    public int Z { get; }
+
+    public int W { get; }
+
+    public Coordinate(int x, int y, int z = 0, int w = 0)
     {
-        public int X { get; }
+        X = x;
+        Y = y;
+        Z = z;
+        W = w;
+    }
 
-        public int Y { get; }
+    public override string ToString()
+    {
+        return $"({X},{Y},{Z},{W})";
+    }
 
-        public int Z { get; }
-
-        public int W { get; }
-
-        public Coordinate(int x, int y, int z = 0, int w = 0)
+    public override bool Equals(object obj)
+    {
+        if (obj is Coordinate otherCoordinate)
         {
-            X = x;
-            Y = y;
-            Z = z;
-            W = w;
+            return otherCoordinate.X.Equals(X) && otherCoordinate.Y.Equals(Y) && otherCoordinate.Z.Equals(Z) && otherCoordinate.W.Equals(W);
         }
 
-        public override string ToString()
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return X.GetHashCode() + Y.GetHashCode() + Z.GetHashCode() + W.GetHashCode();
+    }
+
+    public int CompareTo(object obj)
+    {
+        if (obj is Coordinate other)
         {
-            return $"({X},{Y},{Z},{W})";
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is Coordinate otherCoordinate)
-            {
-                return otherCoordinate.X.Equals(X) && otherCoordinate.Y.Equals(Y) && otherCoordinate.Z.Equals(Z) && otherCoordinate.W.Equals(W);
-            }
-
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return X.GetHashCode() + Y.GetHashCode() + Z.GetHashCode() + W.GetHashCode();
-        }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is Coordinate other)
-            {
-                if (other.Equals(this))
-                {
-                    return 0;
-                }
-            }
-
-            return -1;
-        }
-
-        public static int ManhattanDistance(Coordinate origin, Coordinate destination)
-        {
-            if (origin.Equals(destination))
+            if (other.Equals(this))
             {
                 return 0;
             }
-
-            return Math.Abs(destination.X - origin.X) + Math.Abs(destination.Y - origin.Y);
         }
 
-        public static Coordinate Zero => new(0, 0);
+        return -1;
+    }
 
-        public static Coordinate operator +(Coordinate a, Vector b)
+    public static int ManhattanDistance(Coordinate origin, Coordinate destination)
+    {
+        if (origin.Equals(destination))
         {
-            return new Coordinate(a.X + b.X, a.Y + b.Y, a.Z + b.Z, a.W + b.W);
+            return 0;
         }
 
-        public static Coordinate operator -(Coordinate a, Vector b)
-        {
-            return new Coordinate(a.X - b.X, a.Y - b.Y, a.Z - b.Z, a.W - b.W);
-        }
+        return Math.Abs(destination.X - origin.X) + Math.Abs(destination.Y - origin.Y);
+    }
+
+    public static Coordinate Zero => new(0, 0);
+
+    public static Coordinate operator +(Coordinate a, Vector b)
+    {
+        return new Coordinate(a.X + b.X, a.Y + b.Y, a.Z + b.Z, a.W + b.W);
+    }
+
+    public static Coordinate operator -(Coordinate a, Vector b)
+    {
+        return new Coordinate(a.X - b.X, a.Y - b.Y, a.Z - b.Z, a.W - b.W);
     }
 }
