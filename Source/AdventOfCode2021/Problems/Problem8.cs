@@ -5,7 +5,7 @@ namespace AdventOfCode2021.Problems;
 /// </summary>
 public class Problem8 : ProblemBase
 {
-    public Problem8(InputDownloader inputDownloader) : base(8, inputDownloader) { }
+    public Problem8(InputDownloader inputDownloader = null) : base(8, inputDownloader) { }
 
     /// <inheritdoc />
     protected override object SolvePartOne()

@@ -15,7 +15,7 @@ using Spectre.Console;
 public class InputDownloader : IDisposable
 {
     private const string SessionCookieFilename = "session.cookie";
-    private readonly string InputFolder = Path.Combine("..", "..", "Input");
+    private readonly string InputFolder = Path.Combine("..", "..", "Inputs");
 
     private readonly HttpClientHandler _httpClientHandler;
 
@@ -50,6 +50,8 @@ public class InputDownloader : IDisposable
 
         try
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(inputFilePath));
+
             using var _httpClient = new HttpClient(_httpClientHandler);
             var input = _httpClient.GetStringAsync($"https://adventofcode.com/2021/day/{day}/input").Result;
             File.WriteAllText(inputFilePath, input);

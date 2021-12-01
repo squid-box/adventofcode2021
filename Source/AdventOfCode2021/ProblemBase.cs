@@ -15,7 +15,7 @@ public abstract class ProblemBase
     /// Creates a new <see cref="ProblemBase"/>.
     /// </summary>
     /// <param name="day">Day this problem belongs to.</param>
-    protected ProblemBase(int day, InputDownloader inputDownloader)
+    protected ProblemBase(int day, InputDownloader inputDownloader = null)
     {
         _inputDownloader = inputDownloader;
 
@@ -43,7 +43,7 @@ public abstract class ProblemBase
     /// </summary>
     public void CalculateSolution()
     {
-        _inputDownloader.DownloadDay(Day);
+        _inputDownloader?.DownloadDay(Day);
 
         var start = DateTime.Now;
         Result.AnswerPartOne = SolvePartOne().ToString();
