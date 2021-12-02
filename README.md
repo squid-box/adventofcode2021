@@ -3,7 +3,7 @@
 | Day                                        | Title       | C#            |
 |:------------------------------------------:| ----------- |:-------------:|
 |  [1](https://adventofcode.com/2021/day/1)  | Sonar Sweep | :star: :star: |
-|  [2](https://adventofcode.com/2021/day/2)  | Unknown     |               |
+|  [2](https://adventofcode.com/2021/day/2)  | Dive!       | :star: :star: |
 |  [3](https://adventofcode.com/2021/day/3)  | Unknown     |               |
 |  [4](https://adventofcode.com/2021/day/4)  | Unknown     |               |
 |  [5](https://adventofcode.com/2021/day/5)  | Unknown     |               |
