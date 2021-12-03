@@ -1,8 +1,9 @@
 namespace AdventOfCode2021.Problems;
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using AdventOfCode2021.Utils.Extensions;
 
 /// <summary>
 /// Solution for <a href="https://adventofcode.com/2021/day/3">Day 3</a>.
@@ -23,28 +24,28 @@ public class Problem3 : ProblemBase
         return PartTwo(Input);
     }
 
-    private static Dictionary<int, (int, int)> ParseInput(ICollection<string> input)
+    private static List<(int Zeroes, int Ones)> ParseInput(ICollection<string> input)
     {
-        var positions = new Dictionary<int, (int, int)>();
+        var positions = new List<(int Zeroes, int Ones)>();
+
+        for (var i = 0; i < input.First().Length; i++)
+        {
+            positions.Add((0, 0));
+        }
 
         foreach (var line in input)
         {
             for (var i = 0; i < line.Length; i++)
             {
-                if (!positions.ContainsKey(i))
-                {
-                    positions.Add(i, (0, 0));
-                }
-
                 if (line[i].Equals('0'))
                 {
-                    var current = positions[i];
-                    positions[i] = (++current.Item1, current.Item2);
+                    var (Zeroes, Ones) = positions[i];
+                    positions[i] = (++Zeroes, Ones);
                 }
                 else
                 {
-                    var current = positions[i];
-                    positions[i] = (current.Item1, ++current.Item2);
+                    var (Zeroes, Ones) = positions[i];
+                    positions[i] = (Zeroes, ++Ones);
                 }
             }
         }
@@ -59,9 +60,9 @@ public class Problem3 : ProblemBase
         var mostCommon = string.Empty;
         var leastCommon = string.Empty;
  
-        foreach (var kvp in positions)
+        foreach (var (Zeroes, Ones) in positions)
         {
-            if (kvp.Value.Item1 > kvp.Value.Item2)
+            if (Zeroes > Ones)
             {
                 mostCommon += '0';
                 leastCommon += '1';
@@ -73,22 +74,19 @@ public class Problem3 : ProblemBase
             }
         }
 
-        var mostCommonInDec = Convert.ToInt32(mostCommon, 2);
-        var leastCommonInDec = Convert.ToInt32(leastCommon, 2);
-
-        return mostCommonInDec * leastCommonInDec;
+        return mostCommon.ToIntFromBinary() * leastCommon.ToIntFromBinary();
     }
 
     internal static int PartTwo(ICollection<string> input)
     {
-        var oxygenPositions = ParseInput(input);
+        var oxygenStatistics = ParseInput(input);
         var potentialOxygenValues = input.ToList();
 
         for (var i = 0; i < potentialOxygenValues[0].Length; i++)
         {
-            var mostCommonBit = FindMostCommonBit(oxygenPositions, i);
+            var mostCommonBit = FindMostCommonBit(oxygenStatistics, i);
             potentialOxygenValues = potentialOxygenValues.Where(line => line[i] == mostCommonBit).ToList();
-            oxygenPositions = ParseInput(potentialOxygenValues);
+            oxygenStatistics = ParseInput(potentialOxygenValues);
 
             if (potentialOxygenValues.Count <= 1)
             {
@@ -96,16 +94,14 @@ public class Problem3 : ProblemBase
             }
         }
 
-        var oxyGenRating = Convert.ToInt32(potentialOxygenValues.FirstOrDefault(), 2);
-
-        var co2Positions = ParseInput(input);
+        var co2Statistics = ParseInput(input);
         var potentialCo2Values = input.ToList();
 
         for (var i = 0; i < potentialCo2Values[0].Length; i++)
         {
-            var leastCommonBit = FindLeastCommonBit(co2Positions, i);
-            potentialCo2Values = potentialCo2Values.Where(line => line[i] == leastCommonBit).ToList();
-            co2Positions = ParseInput(potentialCo2Values);
+            var mostCommonBit = FindMostCommonBit(co2Statistics, i);
+            potentialCo2Values = potentialCo2Values.Where(line => line[i] != mostCommonBit).ToList();
+            co2Statistics = ParseInput(potentialCo2Values);
 
             if (potentialCo2Values.Count <= 1)
             { 
@@ -113,41 +109,22 @@ public class Problem3 : ProblemBase
             }
         }
 
-        var co2ScrubberRating = Convert.ToInt32(potentialCo2Values.FirstOrDefault(), 2);
-
-        return oxyGenRating * co2ScrubberRating;
+        return potentialOxygenValues.First().ToIntFromBinary() * potentialCo2Values.First().ToIntFromBinary();
     }
 
-    private static char FindMostCommonBit(Dictionary<int, (int, int)> positions, int position)
+    private static char FindMostCommonBit(List<(int Zeroes, int Ones)> positions, int position)
     {
-        if (positions[position].Item1 == positions[position].Item2)
+        if (positions[position].Zeroes == positions[position].Ones)
         {
             return '1';
         }
-        else if (positions[position].Item1 > positions[position].Item2)
+        else if (positions[position].Zeroes > positions[position].Ones)
         {
             return '0';
         }
         else
         {
             return '1';
-        }
-    }
-
-    private static char FindLeastCommonBit(Dictionary<int, (int, int)> positions, int position)
-    {
-        if (positions[position].Item1 == positions[position].Item2)
-        {
-            return '0';
-        }
-        else
-        if (positions[position].Item1 > positions[position].Item2)
-        {
-            return '1';
-        }
-        else
-        {
-            return '0';
         }
     }
 }

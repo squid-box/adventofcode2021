@@ -42,6 +42,15 @@ public static class StringExtensions
         {
             return null;
         }
+    }
 
+    /// <summary>
+    /// Converts a string from binary to a decimal int.
+    /// </summary>
+    /// <param name="source">The string to convert.</param>
+    /// <returns>The string as a decimal integer.</returns>
+    public static int ToIntFromBinary(this string source)
+    {
+        return Convert.ToInt32(source, 2);
     }
 }
