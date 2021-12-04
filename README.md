@@ -5,7 +5,7 @@
 |  [1](https://adventofcode.com/2021/day/1)  | Sonar Sweep       | :star: :star: |
 |  [2](https://adventofcode.com/2021/day/2)  | Dive!             | :star: :star: |
 |  [3](https://adventofcode.com/2021/day/3)  | Binary Diagnostic | :star: :star: |
-|  [4](https://adventofcode.com/2021/day/4)  | Unknown           |               |
+|  [4](https://adventofcode.com/2021/day/4)  | Giant Squid       | :star: :star: |
 |  [5](https://adventofcode.com/2021/day/5)  | Unknown           |               |
 |  [6](https://adventofcode.com/2021/day/6)  | Unknown           |               |
 |  [7](https://adventofcode.com/2021/day/7)  | Unknown           |               |

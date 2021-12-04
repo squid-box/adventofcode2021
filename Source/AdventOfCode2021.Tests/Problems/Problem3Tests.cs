@@ -7,7 +7,7 @@ using NUnit.Framework;
 [TestFixture]
 public class Problem3Tests
 {
-    private readonly string[] _testInput = new string[]
+    private readonly string[] _testInput = new[]
     {
         "00100",
         "11110",

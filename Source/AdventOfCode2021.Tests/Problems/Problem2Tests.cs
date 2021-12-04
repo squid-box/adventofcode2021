@@ -7,7 +7,7 @@ using NUnit.Framework;
 [TestFixture]
 public class Problem2Tests
 {
-    private readonly string[] _testInput = new string[]
+    private readonly string[] _testInput = new[]
     {
         "forward 5",
         "down 5",
