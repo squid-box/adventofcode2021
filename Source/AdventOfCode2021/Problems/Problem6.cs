@@ -15,39 +15,40 @@ public class Problem6 : ProblemBase
     /// <inheritdoc />
     protected override object SolvePartOne()
     {
-        return PartOne(Input, 80);
+        return CalculatePopulation(Input, 80);
     }
 
     /// <inheritdoc />
     protected override object SolvePartTwo()
     {
-        return PartOne(Input, 256);
+        return CalculatePopulation(Input, 256);
     }
 
-    internal static long PartOne(ICollection<string> input, int days)
+    internal static long CalculatePopulation(ICollection<string> input, int days)
     {
-        var fishPond = input.First().Split(',').ConvertToInt();
+        var fishPond = new List<long>(new long[] { 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+        foreach (var seed in input.First().Split(',').ConvertToInt())
+        {
+            fishPond[seed]++;
+        }
 
         for (var day = 0; day < days; day++)
         {
-            for (var i = 0; i < fishPond.Count; i++)
-            {
-                if (fishPond[i] == 0)
-                {
-                    fishPond.Add(9);
-                }
-                if (fishPond[i] == -1)
-                {
-                    fishPond[i] = 6;
-                }
-            }
+            // Remember number of fish ready to give birth.
+            var ready = fishPond[0];
 
-            for (var i = 0; i < fishPond.Count; i++)
-            {
-                fishPond[i]--;
-            }
+            // Shift list one step down.
+            fishPond.RemoveAt(0);
+            fishPond.Add(0);
+
+            // Add parents back into their cycle.
+            fishPond[6] += ready;
+
+            // Add new-born fish.
+            fishPond[8] = ready;
         }
 
-        return fishPond.Count;
+        return fishPond.Sum();
     }
 }

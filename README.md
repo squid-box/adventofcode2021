@@ -7,7 +7,7 @@
 |  [3](https://adventofcode.com/2021/day/3)  | Binary Diagnostic    | :star: :star: |
 |  [4](https://adventofcode.com/2021/day/4)  | Giant Squid          | :star: :star: |
 |  [5](https://adventofcode.com/2021/day/5)  | Hydrothermal Venture | :star: :star: |
-|  [6](https://adventofcode.com/2021/day/6)  | Lanternfish          | :star:        |
+|  [6](https://adventofcode.com/2021/day/6)  | Lanternfish          | :star: :star: |
 |  [7](https://adventofcode.com/2021/day/7)  | Unknown              |               |
 |  [8](https://adventofcode.com/2021/day/8)  | Unknown              |               |
 |  [9](https://adventofcode.com/2021/day/9)  | Unknown              |               |

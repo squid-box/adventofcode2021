@@ -15,13 +15,13 @@ public class Problem6Tests
     [Test]
     public void TestPartOne()
     {
-        Assert.AreEqual(26, Problem6.PartOne(_testInput, 18));
-        Assert.AreEqual(5934, Problem6.PartOne(_testInput, 80));
+        Assert.AreEqual(26, Problem6.CalculatePopulation(_testInput, 18));
+        Assert.AreEqual(5934, Problem6.CalculatePopulation(_testInput, 80));
     }
 
     [Test]
     public void TestPartTwo()
     {
-        Assert.AreEqual(26984457539, Problem6.PartOne(_testInput, 256));
+        Assert.AreEqual(26984457539, Problem6.CalculatePopulation(_testInput, 256));
     }
 }
