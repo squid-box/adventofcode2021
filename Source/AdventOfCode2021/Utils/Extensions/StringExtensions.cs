@@ -1,6 +1,7 @@
 ﻿namespace AdventOfCode2021.Utils.Extensions;
 
 using System;
+using System.Linq;
 
 /// <summary>
 /// Extensions for strings.
@@ -52,5 +53,10 @@ public static class StringExtensions
     public static int ToIntFromBinary(this string source)
     {
         return Convert.ToInt32(source, 2);
+    }
+
+    public static string SortAlphabetically(this string source)
+    {
+        return string.Concat(source.OrderBy(c => c));
     }
 }
