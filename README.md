@@ -10,7 +10,7 @@
 |  [6](https://adventofcode.com/2021/day/6)  | Lanternfish             | :star: :star: |
 |  [7](https://adventofcode.com/2021/day/7)  | The Treachery of Whales | :star: :star: |
 |  [8](https://adventofcode.com/2021/day/8)  | Seven Segment Search    | :star: :star: |
-|  [9](https://adventofcode.com/2021/day/9)  | Unknown                 |               |
+|  [9](https://adventofcode.com/2021/day/9)  | Smoke Basin             | :star: :star: |
 | [10](https://adventofcode.com/2021/day/10) | Unknown                 |               |
 | [11](https://adventofcode.com/2021/day/11) | Unknown                 |               |
 | [12](https://adventofcode.com/2021/day/12) | Unknown                 |               |

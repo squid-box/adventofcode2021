@@ -51,6 +51,7 @@ public class Matrix<T>
     /// <summary>
     /// Gets the element stored at (<paramref name="x"/>,<paramref name="y"/>).
     /// </summary>
+    /// <exception cref="IndexOutOfRangeException">Thrown if any index is out of range.</exception>
     public T GetElement(int x, int y)
     {
         EvaluateGivenIndices(x, y);
@@ -61,6 +62,7 @@ public class Matrix<T>
     /// <summary>
     /// Sets the given element at (<paramref name="x"/>,<paramref name="y"/>).
     /// </summary>
+    /// <exception cref="IndexOutOfRangeException">Thrown if any index is out of range.</exception>
     public void SetElement(int x, int y, T value)
     {
         EvaluateGivenIndices(x, y);
@@ -73,6 +75,7 @@ public class Matrix<T>
     /// </summary>
     /// <param name="y">Zero-indexed row number.</param>
     /// <returns>All elements from given row.</returns>
+    /// <exception cref="IndexOutOfRangeException">Thrown if any index is out of range.</exception>
     public IList<T> GetRow(int y)
     {
         EvaluateGivenIndices(0, y);
@@ -92,6 +95,7 @@ public class Matrix<T>
     /// </summary>
     /// <param name="x">Zero-indexed column number.</param>
     /// <returns>All elements from given column.</returns>
+    /// <exception cref="IndexOutOfRangeException">Thrown if any index is out of range.</exception>
     public IList<T> GetColumn(int x)
     {
         EvaluateGivenIndices(x, 0);
