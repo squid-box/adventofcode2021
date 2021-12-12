@@ -1,12 +1,21 @@
 ﻿namespace AdventOfCode2021.Utils;
 
 using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Represents a coordinate in a 2-4 dimensional system.
 /// </summary>
 public class Coordinate : IComparable
 {
+    public Coordinate(int x, int y, int z = 0, int w = 0)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+        W = w;
+    }
+
     public int X { get; }
 
     public int Y { get; }
@@ -15,12 +24,19 @@ public class Coordinate : IComparable
 
     public int W { get; }
 
-    public Coordinate(int x, int y, int z = 0, int w = 0)
+    public IList<Coordinate> GetNeighbours()
     {
-        X = x;
-        Y = y;
-        Z = z;
-        W = w;
+        return new List<Coordinate>
+        {
+            this + Vector.North,
+            this + Vector.South,
+            this + Vector.West,
+            this + Vector.East,
+            this + Vector.North + Vector.East,
+            this + Vector.North + Vector.West,
+            this + Vector.South + Vector.East,
+            this + Vector.South + Vector.West
+        };
     }
 
     public override string ToString()

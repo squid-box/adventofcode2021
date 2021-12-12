@@ -12,7 +12,7 @@
 |  [8](https://adventofcode.com/2021/day/8)  | Seven Segment Search    | :star: :star: |
 |  [9](https://adventofcode.com/2021/day/9)  | Smoke Basin             | :star: :star: |
 | [10](https://adventofcode.com/2021/day/10) | Syntax Scoring          | :star: :star: |
-| [11](https://adventofcode.com/2021/day/11) | Unknown                 |               |
+| [11](https://adventofcode.com/2021/day/11) | Dumbo Octopus           | :star: :star: |
 | [12](https://adventofcode.com/2021/day/12) | Unknown                 |               |
 | [13](https://adventofcode.com/2021/day/13) | Unknown                 |               |
 | [14](https://adventofcode.com/2021/day/14) | Unknown                 |               |
