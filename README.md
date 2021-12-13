@@ -13,8 +13,8 @@
 |  [9](https://adventofcode.com/2021/day/9)  | Smoke Basin             | :star: :star: |
 | [10](https://adventofcode.com/2021/day/10) | Syntax Scoring          | :star: :star: |
 | [11](https://adventofcode.com/2021/day/11) | Dumbo Octopus           | :star: :star: |
-| [12](https://adventofcode.com/2021/day/12) | Unknown                 |               |
-| [13](https://adventofcode.com/2021/day/13) | Unknown                 |               |
+| [12](https://adventofcode.com/2021/day/12) | Passage Pathing         | :star: :star: |
+| [13](https://adventofcode.com/2021/day/13) | Transparent Origami     |               |
 | [14](https://adventofcode.com/2021/day/14) | Unknown                 |               |
 | [15](https://adventofcode.com/2021/day/15) | Unknown                 |               |
 | [16](https://adventofcode.com/2021/day/16) | Unknown                 |               |
